@@ -1,7 +1,11 @@
 package GUI;
 
+import BL.Account;
+
 public class AccountGUI extends javax.swing.JFrame {
 
+    private Account account;
+    
     public AccountGUI() {
         initComponents();
     }
@@ -12,6 +16,9 @@ public class AccountGUI extends javax.swing.JFrame {
 
         AccountPopupMenu = new javax.swing.JPopupMenu();
         btCreateAcc = new javax.swing.JMenuItem();
+        UserPopupMenu = new javax.swing.JPopupMenu();
+        btAddUser = new javax.swing.JMenuItem();
+        btPerformTest = new javax.swing.JMenuItem();
         UserPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         liUser = new javax.swing.JList<>();
@@ -22,7 +29,18 @@ public class AccountGUI extends javax.swing.JFrame {
         lbBalance = new javax.swing.JLabel();
 
         btCreateAcc.setText("Create New Account");
+        btCreateAcc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCreateAccActionPerformed(evt);
+            }
+        });
         AccountPopupMenu.add(btCreateAcc);
+
+        btAddUser.setText("Add User");
+        UserPopupMenu.add(btAddUser);
+
+        btPerformTest.setText("Perform Account Test");
+        UserPopupMenu.add(btPerformTest);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,6 +121,10 @@ public class AccountGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btCreateAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCreateAccActionPerformed
+        account = new Account(50);
+    }//GEN-LAST:event_btCreateAccActionPerformed
+
 
     public static void main(String args[]) {
         try {
@@ -133,7 +155,10 @@ public class AccountGUI extends javax.swing.JFrame {
     private javax.swing.JPopupMenu AccountPopupMenu;
     private javax.swing.JPanel OutputPanel;
     private javax.swing.JPanel UserPanel;
+    private javax.swing.JPopupMenu UserPopupMenu;
+    private javax.swing.JMenuItem btAddUser;
     private javax.swing.JMenuItem btCreateAcc;
+    private javax.swing.JMenuItem btPerformTest;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbBalance;

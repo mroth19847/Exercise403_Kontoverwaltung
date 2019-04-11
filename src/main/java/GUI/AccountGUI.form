@@ -12,6 +12,27 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Create New Account"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btCreateAccActionPerformed"/>
+          </Events>
+        </MenuItem>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPopupMenu" name="UserPopupMenu">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+        <Property name="useNullLayout" type="boolean" value="true"/>
+      </Layout>
+      <SubComponents>
+        <MenuItem class="javax.swing.JMenuItem" name="btAddUser">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Add User"/>
+          </Properties>
+        </MenuItem>
+        <MenuItem class="javax.swing.JMenuItem" name="btPerformTest">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Perform Account Test"/>
+          </Properties>
         </MenuItem>
       </SubComponents>
     </Container>
