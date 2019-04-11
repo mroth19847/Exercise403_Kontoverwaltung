@@ -10,6 +10,8 @@ public class AccountGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        AccountPopupMenu = new javax.swing.JPopupMenu();
+        btCreateAcc = new javax.swing.JMenuItem();
         UserPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         liUser = new javax.swing.JList<>();
@@ -18,6 +20,9 @@ public class AccountGUI extends javax.swing.JFrame {
         taOutput = new javax.swing.JTextArea();
         AccountPanel = new javax.swing.JPanel();
         lbBalance = new javax.swing.JLabel();
+
+        btCreateAcc.setText("Create New Account");
+        AccountPopupMenu.add(btCreateAcc);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,13 +50,14 @@ public class AccountGUI extends javax.swing.JFrame {
 
         taOutput.setColumns(20);
         taOutput.setRows(5);
+        taOutput.setComponentPopupMenu(AccountPopupMenu);
         jScrollPane2.setViewportView(taOutput);
 
         javax.swing.GroupLayout OutputPanelLayout = new javax.swing.GroupLayout(OutputPanel);
         OutputPanel.setLayout(OutputPanelLayout);
         OutputPanelLayout.setHorizontalGroup(
             OutputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
         );
         OutputPanelLayout.setVerticalGroup(
             OutputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,8 +130,10 @@ public class AccountGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AccountPanel;
+    private javax.swing.JPopupMenu AccountPopupMenu;
     private javax.swing.JPanel OutputPanel;
     private javax.swing.JPanel UserPanel;
+    private javax.swing.JMenuItem btCreateAcc;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lbBalance;
