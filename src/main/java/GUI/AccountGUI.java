@@ -1,13 +1,18 @@
 package GUI;
 
 import BL.Account;
+import BL.User;
+import BL.UserModel;
+import javax.swing.JOptionPane;
 
 public class AccountGUI extends javax.swing.JFrame {
 
     private Account account;
+    private UserModel bl = new UserModel();
     
     public AccountGUI() {
         initComponents();
+        liUser.setModel(bl);
     }
 
     @SuppressWarnings("unchecked")
@@ -37,12 +42,23 @@ public class AccountGUI extends javax.swing.JFrame {
         AccountPopupMenu.add(btCreateAcc);
 
         btAddUser.setText("Add User");
+        btAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddUserActionPerformed(evt);
+            }
+        });
         UserPopupMenu.add(btAddUser);
 
         btPerformTest.setText("Perform Account Test");
+        btPerformTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPerformTestActionPerformed(evt);
+            }
+        });
         UserPopupMenu.add(btPerformTest);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         UserPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("User"));
 
@@ -51,6 +67,7 @@ public class AccountGUI extends javax.swing.JFrame {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        liUser.setComponentPopupMenu(UserPopupMenu);
         jScrollPane1.setViewportView(liUser);
 
         javax.swing.GroupLayout UserPanelLayout = new javax.swing.GroupLayout(UserPanel);
@@ -124,6 +141,15 @@ public class AccountGUI extends javax.swing.JFrame {
     private void btCreateAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCreateAccActionPerformed
         account = new Account(50);
     }//GEN-LAST:event_btCreateAccActionPerformed
+
+    private void btPerformTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPerformTestActionPerformed
+        
+    }//GEN-LAST:event_btPerformTestActionPerformed
+
+    private void btAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddUserActionPerformed
+        String name = JOptionPane.showInputDialog("Input Name: ");
+        bl.add(new User(name));
+    }//GEN-LAST:event_btAddUserActionPerformed
 
 
     public static void main(String args[]) {
