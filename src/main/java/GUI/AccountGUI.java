@@ -3,16 +3,23 @@ package GUI;
 import BL.Account;
 import BL.User;
 import BL.UserModel;
+import Observer.AccountObserver;
 import javax.swing.JOptionPane;
 
-public class AccountGUI extends javax.swing.JFrame {
+public class AccountGUI extends javax.swing.JFrame implements AccountObserver {
 
     private Account account;
     private UserModel bl = new UserModel();
-    
+
     public AccountGUI() {
         initComponents();
         liUser.setModel(bl);
+    }
+
+    @Override
+    public void update(Account acc, String message) {
+        lbBalance.setText(String.format("%.2f", acc.getBalance()));
+        taOutput.append(message);
     }
 
     @SuppressWarnings("unchecked")
@@ -143,14 +150,13 @@ public class AccountGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btCreateAccActionPerformed
 
     private void btPerformTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPerformTestActionPerformed
-        
+
     }//GEN-LAST:event_btPerformTestActionPerformed
 
     private void btAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddUserActionPerformed
         String name = JOptionPane.showInputDialog("Input Name: ");
         bl.add(new User(name));
     }//GEN-LAST:event_btAddUserActionPerformed
-
 
     public static void main(String args[]) {
         try {

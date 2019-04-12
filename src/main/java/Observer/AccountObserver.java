@@ -4,5 +4,5 @@ import BL.Account;
 
 public interface AccountObserver {
     
-    public void update(Account acc);
+    public void update(Account acc, String message);
 }
