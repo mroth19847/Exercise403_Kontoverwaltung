@@ -13,7 +13,7 @@ public class Account {
     }
     
     public void withdraw(double money) throws BalanceEmptyException{
-        if(balance-money < 0) throw new BalanceEmptyException();
+        if(balance < money) throw new BalanceEmptyException();
         balance -= money;
     }
     
