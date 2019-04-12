@@ -12,11 +12,12 @@ public class Account {
         balance += money;
     }
     
-    public void withdraw(double money){
+    public void withdraw(double money) throws BalanceEmptyException{
+        if(balance-money < 0) throw new BalanceEmptyException();
         balance -= money;
     }
     
-    public void transferTo(Account receiver, double money){
+    public void transferTo(Account receiver, double money) throws BalanceEmptyException{
         withdraw(money);
         receiver.deposit(money);
     }
