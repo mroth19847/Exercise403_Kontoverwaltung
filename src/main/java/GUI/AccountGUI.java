@@ -18,7 +18,7 @@ public class AccountGUI extends javax.swing.JFrame implements AccountObserver {
 
     @Override
     public void update(Account acc, String message) {
-        lbBalance.setText(String.format("%.2f", acc.getBalance()));
+        lbBalance.setText(String.format("%.2f Euro", acc.getBalance()));
         taOutput.append(message);
     }
 
@@ -147,10 +147,16 @@ public class AccountGUI extends javax.swing.JFrame implements AccountObserver {
 
     private void btCreateAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCreateAccActionPerformed
         account = new Account(50);
+        bl.setAccount(account);
+        lbBalance.setText(String.format("%.2f Euro", account.getBalance()));
     }//GEN-LAST:event_btCreateAccActionPerformed
 
     private void btPerformTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPerformTestActionPerformed
-
+        try {
+            bl.test();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
     }//GEN-LAST:event_btPerformTestActionPerformed
 
     private void btAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddUserActionPerformed
