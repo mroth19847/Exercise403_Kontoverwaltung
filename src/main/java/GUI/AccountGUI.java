@@ -4,6 +4,7 @@ import BL.Account;
 import BL.User;
 import BL.UserModel;
 import Observer.AccountObserver;
+import java.util.Random;
 import javax.swing.JOptionPane;
 
 public class AccountGUI extends javax.swing.JFrame implements AccountObserver {
@@ -14,12 +15,21 @@ public class AccountGUI extends javax.swing.JFrame implements AccountObserver {
     public AccountGUI() {
         initComponents();
         liUser.setModel(bl);
+        bl.register(this);
     }
 
     @Override
     public void update(Account acc, String message) {
+        Random rdm = new Random();
+
+        int time = 1 + rdm.nextInt(1000);
+
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException ex) {
+        }
         lbBalance.setText(String.format("%.2f Euro", acc.getBalance()));
-        taOutput.append(message);
+        taOutput.append(message + "\n");
     }
 
     @SuppressWarnings("unchecked")
@@ -90,6 +100,7 @@ public class AccountGUI extends javax.swing.JFrame implements AccountObserver {
 
         OutputPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Log-output"));
 
+        taOutput.setEditable(false);
         taOutput.setColumns(20);
         taOutput.setRows(5);
         taOutput.setComponentPopupMenu(AccountPopupMenu);
@@ -143,6 +154,7 @@ public class AccountGUI extends javax.swing.JFrame implements AccountObserver {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCreateAccActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCreateAccActionPerformed

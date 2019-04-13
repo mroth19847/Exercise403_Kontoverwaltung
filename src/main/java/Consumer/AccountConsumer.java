@@ -37,12 +37,7 @@ public class AccountConsumer implements Runnable {
             }
 
         }
-        int time = 1 + rdm.nextInt(1000);
 
-        try {
-            Thread.sleep(time);
-        } catch (InterruptedException ex) {
-        }
     }
 
 }
